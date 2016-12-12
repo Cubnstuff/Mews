@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @mew.message %>
+</p>
+
+
+ <p>
+	<strong>User:</strong>
+		<%= link_to @mew.user.username, 
+                    show_user_path(id: @mew.user.id) %>
+
+</p>
+
+<%= link_to 'Edit', edit_mew_path(@mew) %> |
+<%= link_to 'Back', mews_path %>

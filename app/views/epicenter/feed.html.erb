@@ -1,0 +1,12 @@
+<h1><%= current_user.username %>'s Mews!</h1>
+<p>who is Mewing?</p>
+<div>
+    <% @following_mews.each do |mew| %>
+        <div>
+            <p><%= mew.message %></p>
+            <p><%= mew.user.username %></p>
+        </div>
+        
+        <% end %>
+        
+</div>

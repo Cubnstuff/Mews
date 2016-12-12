@@ -1,0 +1,1 @@
+json.array! @mews, partial: 'mews/mew', as: :mew
