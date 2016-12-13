@@ -33,3 +33,17 @@ class EpicenterController < ApplicationController
   end
 end
 
+  def create 
+    @mew = Mew.create.(mew_params)
+   
+    
+    @mew.update(message: message_arr.join(""))
+    
+   
+    
+    
+  end
+  
+  def tag_mews
+    @tag = Tag.find(params[:id])
+  end

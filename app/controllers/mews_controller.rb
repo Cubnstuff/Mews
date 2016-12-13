@@ -1,6 +1,10 @@
 class MewsController < ApplicationController
   before_action :set_mew, only: [:show, :edit, :update, :destroy]
+
+include MewsHelper
+
 before_filter :authenticate_user!
+
   # GET /mews
   # GET /mews.json
   def index
@@ -25,6 +29,9 @@ before_filter :authenticate_user!
   # POST /mews.json
   def create
     @mew = Mew.new(mew_params)
+    
+    
+    @mew = get_tagged(@mew)
 
     respond_to do |format|
       if @mew.save

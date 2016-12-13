@@ -1,0 +1,23 @@
+<div class="center-it tag-topic-header">
+    <h1><%= @tag.phrase %></h1>
+</div>
+
+<div class="row">
+    <!-- a place for current user stats -->
+    <div class="col-md-7 col-md-offset-1">
+	<div class="row">
+	    <% @tag.mews.order(created_at: :desc).each do |mew| %>
+	        <div class="col-md-12 tweet-area borderline">
+		    <p>
+		        <%= link_to show_user_path(id: mew.user.id) do %> 
+			    <%= mew.user.name %> <span class="no-underline">
+                              <%= "@#{mew.user.username}" %></span>
+		        <% end %>
+			 <%= time_ago_in_words(mew.created_at) %>
+		    </p>
+		    <p><%= mew.message.html_safe %></p>
+		</div>
+	    <% end %>
+	</div>
+    </div>
+</div>

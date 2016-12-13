@@ -1,30 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Mews</h1>
+<div class="panel panel-default">
+  
+  <div class="panel-heading">
 
-<table>
-  <thead>
-    <tr>
-      <th>Message</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+    <h1>Listing Mews</h1>
+  </div>
+ 
+ <div class=class="panel-body">
+  
+  <div class="row">
+    
     <% @mews.each do |mew| %>
-      <tr>
-        <td><%= mew.message %></td>
-        <td><%= link_to mew.user.username, show_user_path(id: mew.user.id) %></td>
+      
+      <div class="col-md-4">
+        <div class="well">
+        
+        
+        <h4><%= link_to mew.user.username, show_user_path(id: mew.user.id) %></h4>
+        <p><%= mew.message %></p>
 
-        <td><%= link_to 'Show', mew %></td>
-        <td><%= link_to 'Edit', edit_mew_path(mew) %></td>
-        <td><%= link_to 'Destroy', mew, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <p>
+          <% if current_user.id != mew.user.id %>
+          <%= link_to 'Show', mew %>
+          <% else %>
+          <% link_to 'Show', mew %>
+        <%= link_to 'Edit', edit_mew_path(mew) %>
+        <%= link_to 'Destroy', mew, method: :delete, data: { confirm: 'Are you sure?' } %>
+    
+       <% end %>
+      </p>
+    </div>
+  </div>
+<% end %>
+    </div>
 
-<br>
-
-<%= link_to 'New Mew', new_mew_path %>
+<div class="panel-footer">
+<%= link_to 'New Mew', new_mew_path, class: "btn btn-default"%>
+</div>
+</div>

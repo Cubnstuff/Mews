@@ -1,12 +1,29 @@
+
+
 <h1><%= current_user.username %>'s Mews!</h1>
-<p>who is Mewing?</p>
-<div>
+
+<div class="panel panel-default">
+    
+    <div class="panel-heading" >   
+     
+     <p>who is Mewing?</p>
+    </div>
+    
+    
+    <div class="panel-body">
+    
+    <div class="row">
+    
     <% @following_mews.each do |mew| %>
-        <div>
+     
+     <div class="col-md-4">
+         <div class="well"></div>
             <p><%= mew.message %></p>
             <p><%= mew.user.username %></p>
         </div>
         
         <% end %>
-        
+       </div>
+       
 </div>
+<div class="panel-footer">
